@@ -4,9 +4,33 @@
   <title>TwitterClone</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <!-- Materialize icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <div class="right update-profile">
+    <% if user_signed_in? %>
+      Welcome <%= link_to current_user.display_name, '/profile' %>
+      <%= link_to "logout", destroy_user_session_path, method: 'DELETE' %>
+    <% else %>
+      Please
+        <%= link_to "login", new_user_session_path %>
+        or
+        <%= link_to "signup", new_user_registration_path %>
+    <% end %>
+  </div>
 
 <%= yield %>
 
