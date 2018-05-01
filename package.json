@@ -13,7 +13,10 @@
   },
   "author": "Zaza Siviley",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "events": "^2.0.0",
+    "flux": "^3.1.3"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
